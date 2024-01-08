@@ -17,6 +17,9 @@ const storage = multer.diskStorage({
 // Upload functionality
 const upload = multer({ storage: storage });
 
+//Set Request Size Limit
+app.use(express.limit(100000000));
+
 app.use('', (_, res, next) => {
     res.set('Cross-Origin-Resource-Policy', 'cross-origin');
     next();
